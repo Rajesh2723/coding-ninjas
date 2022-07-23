@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+int findUnique(int *arr, int size) {
+    // Write your code here
+    bool unique = true;
+    sort(arr,arr+size);
+    for(int i =0;i < (size+1)/2;i=i+2){
+        if(arr[i] == arr[i+1]){
+            unique = false;
+        }else{
+            unique = true;
+            return arr[i];
+        }
+    }
+    if(unique == false){  // This case tells that if theres we reached the end of the array we skip the last element since(i=i+2) so for this we are just checking
+        return arr[size-1];
+    }
+}
