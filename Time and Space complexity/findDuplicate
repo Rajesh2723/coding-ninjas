@@ -10,3 +10,21 @@ int findDuplicate(int arr[], int n){
 		tmp[arr[i]]++;
 	}
 }
+
+
+///// This solution made me something else like the approach is something good
+
+int findDuplicate(int *arr, int n)
+{
+    
+     int sum = 0;
+    for(int i = 0;i<n;i++){
+       
+        sum+=arr[i];
+    }
+    
+    //find sum of n-2 natural numbers
+    int sumOfn = ((n-2)*(n-1))/2;
+    return sum-sumOfn;
+}
+using the some of the natural numbers and summing up the array we will get the answer
