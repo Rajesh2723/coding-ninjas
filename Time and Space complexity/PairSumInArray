@@ -41,4 +41,21 @@ int pairSum(int *arr, int n, int num)
      return ans;
            
     }
+    /// another approach for this problem
+    int pairSum(int *arr, int n, int num)
+{
+	
+     //try following this approach if confused
+    int count=0;
+    for(int i=0;i<n-1;i++){
+        int val=num-arr[i];
+        for(int j=i+1;j<n;j++){
+            if(val==arr[j]){
+                count++;
+            }
+        }
+        
+    }
+    return count;
+}
     
