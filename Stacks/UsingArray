@@ -83,6 +83,6 @@ class StackUsingArray {
 			cout << "Stack is empty " << endl;
 			return INT_MIN;	
 		}
-		return data[nextIndex - 1];
+		return data[nextIndex - 1]; 
 	}
 };
