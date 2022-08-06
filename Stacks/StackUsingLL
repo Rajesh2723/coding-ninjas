@@ -1,0 +1,50 @@
+
+class Stack {
+    Node *head;
+    int size;		// number of elements prsent in stack
+    
+    public :
+    
+    Stack() {
+        size=0;
+        head=NULL;
+    }
+    
+    int getSize() {
+        return size;
+    }
+    
+    bool isEmpty() {
+        return size==0;
+    }
+    
+    void push(int element) {
+       Node  *p=new Node(element);
+        p->next=head;
+        head=p;
+       size+=1;
+    }
+    
+    int pop() {
+        // Return 0 if stack is empty. Don't display any other message
+        if(!head)
+        {return -1;}
+        
+        int x=head->data;
+        Node * p =head;
+        head=head->next;
+        delete p;
+        size--;
+        return x;
+    }
+    
+    int top() {
+        // Return 0 if stack is empty. Don't display any other message
+        if(!head) return -1;
+        
+        return head->data;
+    }
+    
+  
+    
+};
