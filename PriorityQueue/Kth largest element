@@ -15,3 +15,21 @@ int kthLargest(int* arr, int n, int k) {
 }
 
 //the effective way is to using the priority queue
+#include<bits/stdc++.h>
+#include<queue>
+int kthLargest(int* input, int n, int k) {
+    
+    priority_queue<int> pq;
+    
+    for(int i=0;i<n;i++)
+        pq.push(input[i]);
+    
+    for(int i=0;i<k-1;i++)
+        pq.pop();
+    
+    
+    return pq.top();
+    
+    
+}
+
