@@ -23,7 +23,7 @@ void printIntersection(int arr1[], int arr2[], int n, int m) {
         
         if(common[arr2[j]] > 0){
             cout<<arr2[j]<<endl;
-            --common[arr2[j]];
+            --common[arr2[j]];            ///here we can do the postincrement also
         }
     }
     
