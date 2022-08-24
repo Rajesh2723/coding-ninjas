@@ -15,3 +15,35 @@ int lengthOfLongestSubsetWithZeroSum(int* arr, int n) {
     }
     return maxLength;
 }
+Here is the another approach that
+////
+#include<bits/stdc++.h>
+int lengthOfLongestSubsetWithZeroSum(int* arr, int n) {
+    int max1=0;
+    int sum=0;
+    unordered_map<int,int>map;
+    // map[0]=1;
+    for(int i=0;i<n;i++){
+	    // sum+=arr[i];
+	    // if(map.find(sum)!=map.end()){
+	    // max1=max(i,max1);
+	    // }
+	    // map[sum]=i;
+          int len=0;
+        sum+=arr[i];
+        if(sum==0){
+            len=i+1;
+             if(len>max1)
+                max1=len;
+        }
+        
+        if(map.find(sum)!=map.end()){
+            len=i-map[sum];
+            if(len>max1)
+                max1=len;
+            continue;
+        }
+        map[sum]=i;
+    }
+    return max1;
+}
