@@ -1,0 +1,21 @@
+
+
+long staircase(int n)
+{
+	//Write your code here
+    long *mn=new long[n+1];
+    if(n==0){
+        return 1;
+    }
+    if(n==1|| n==2){
+        return n;
+    }
+    mn[0]=1,mn[1]=1,mn[2]=2;
+    for(int i=3;i<=n;i++){
+       mn[i]=mn[i-1]+mn[i-2]+mn[i-3]; 
+    }
+    long result=mn[n];
+    return result;
+    delete [] mn;
+    
+}
