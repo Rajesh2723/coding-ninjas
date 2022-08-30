@@ -14,7 +14,7 @@ long staircase(int n)
     for(int i=3;i<=n;i++){
        mn[i]=mn[i-1]+mn[i-2]+mn[i-3]; 
     }
-    long result=mn[n];
+    long result=mn[n]; //here we are filling the values and we are returning the mn[n];
     return result;
     delete [] mn;
     
