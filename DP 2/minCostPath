@@ -1,0 +1,20 @@
+int minCostRec(int **arr, int i, int j, int n, int m){
+    if(i == n && j == m){
+        return arr[i][j];
+    }
+    int res = INT_MAX;
+    if(i+1 <= n){
+        res = min(res, minCostRec(arr, i+1, j, n, m));
+    }
+    if(j+1 <= m){
+        res = min(res, minCostRec(arr, i, j+1, n, m));
+    }
+    if(i+1 <= n && j+1 <= m){
+        res = min(res, minCostRec(arr, i+1, j+1, n, m));
+    }
+    int cost = res + arr[i][j];
+    return cost;
+}
+int minCostPath(int **input, int m, int n){
+    return minCostRec(input, 0, 0, m-1, n-1);
+}
