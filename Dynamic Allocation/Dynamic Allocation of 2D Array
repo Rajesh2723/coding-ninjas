@@ -12,8 +12,8 @@ int main() {
 		}
 	}
 
-	for (int i = 0; i < m; i++) {
-		delete [] p[i];
+	for (int i = 0; i < m; i++) { 
+		delete [] p[i];                     ///here it is to delete the array of rows
 	}
-	delete [] p;
+	delete [] p; /// here it is to delete the int* pointers 
 }
