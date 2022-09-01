@@ -1,0 +1,10 @@
+
+int maxMoneyLooted(int *arr, int n){
+    int* out = new int[n+1];
+    out[0] = 0;
+    out[1] = arr[0];
+    for(int i=2; i<=n; i++){
+        out[i] = max(out[i-1], arr[i-1]+out[i-2]);  here since 2-2=0 so we are leaving first two elements
+    }
+    return out[n];
+}
