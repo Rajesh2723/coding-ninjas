@@ -20,9 +20,9 @@ vector<vector<string> > Anagrams(vector<string>& v) {
         vector<vector<string>>res;
         unordered_map<string,vector<string>>mp;  //here we are creating the map of vector<string> and it act as the second one
         for(int i=0;i<v.size();i++){
-            string temp=v[i];
-            sort(temp.begin(),temp.end());
-            mp[temp].push_back(v[i]);
+            string temp=v[i];                    
+            sort(temp.begin(),temp.end());         //Here we are just sorting the temp one for that we are just pushing them to the map in map it stored like the hash one
+            mp[temp].push_back(v[i]);                  /// based on the key value pair
         }
         for(auto it:mp){
             res.push_back(it.second);
