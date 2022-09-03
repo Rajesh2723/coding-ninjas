@@ -1,0 +1,42 @@
+Input: 
+A = "GEEKSFORGEEKS" 
+B = "FORGEEKSGEEKS"
+Output: 3
+Explanation:The conversion can take place 
+in 3 operations:
+1. Pick 'R' and place it at the front, 
+   A="RGEEKSFOGEEKS"
+2. Pick 'O' and place it at the front, 
+   A="ORGEEKSFGEEKS"
+3. Pick 'F' and place it at the front, 
+   A="FORGEEKSGEEKS"
+   
+   //////////code
+   int transfigure (string A, string B)
+    {
+    	
+    	if(A.size()!=B.size())
+    	return -1;
+    	int count=0;
+    	int sum=0;
+    	for(int i=0;i<A.size();i++){
+    	    sum+=A[i];             //here we are just adding the ASCII value and we are substracting the values  if sum==0 then its correct 
+    	    sum-=B[i];
+    	}
+    	if(sum!=0)
+    	return -1;
+    	int i=A.length();
+    	int j=B.length();
+    	while(i>=0 and j>=0){
+    	    if(A[i]!=B[j]){
+    	        count++;
+    	        i--;
+    	    }else{
+    	        i--;
+    	        j--;
+    	    }
+    	}
+    	if(count==A.length() && count==B.length())
+    	return -1;
+    	return count;
+    }
