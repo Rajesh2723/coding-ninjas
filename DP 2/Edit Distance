@@ -25,7 +25,7 @@ int editDistance(string s1, string s2) {
     } 
 
     if(s1[0] == s2[0]){
-        return editDistance(s1.substr(1), s2.substr(1));
+        return editDistance(s1.substr(1), s2.substr(1));   //here if first both of characters are same then we are passing the 1st character as operations
     } else{
         int ans1 = 1 + editDistance(s1.substr(1), s2);
         int ans2 = 1 + editDistance(s1, s2.substr(1));
