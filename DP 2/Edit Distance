@@ -33,3 +33,33 @@ int editDistance(string s1, string s2) {
         return min(ans1, min(ans2, ans3));
     }
 }
+
+/// using dp and memoization
+
+int editDistance(string s1, string s2){
+    int n = s1.length();
+    int m = s2.length();
+    int** arr = new int*[n+1];
+    for(int i=0; i<=n; i++){
+        arr[i] = new int[m+1];
+    }
+    for(int j=0; j<=m; j++){
+        arr[0][j] = j;
+    }
+    for(int i=1; i<=n; i++){
+        arr[i][0] = i;
+    }
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=m; j++){
+            if(s1[n-i] == s2[m-j]){
+                arr[i][j] = arr[i-1][j-1];
+            } else {
+                int ans1 = 1 + arr[i-1][j];
+                int ans2 = 1 + arr[i][j-1];
+                int ans3 = 1 + arr[i-1][j-1];
+                arr[i][j] = min(ans1, min(ans2, ans3));
+            }
+        }
+    }
+    return arr[n][m];
+}
